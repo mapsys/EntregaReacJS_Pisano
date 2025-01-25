@@ -9,7 +9,7 @@ function NavBar() {
             <div className="logo">
               <img src="src/assets/pngegg.png" alt="Logo" />
               <a className="navbar-brand" href="#">
-                Categorias
+                Nuestra Cocina
               </a>
               <button
                 className="navbar-toggler"
