@@ -1,0 +1,12 @@
+.itemCountContainer{
+    margin: 10px;
+    padding: 10px;
+    display:flex;
+    gap: 20px;
+    justify-content: space-evenly;
+}
+
+.itemCounter{
+    display:flex;
+    gap: 20px;
+}

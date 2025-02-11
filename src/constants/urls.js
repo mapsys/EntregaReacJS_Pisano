@@ -5,12 +5,16 @@
     Aromatizantes: "https://api.mercadolibre.com/sites/MLA/search?q=esencias%20reposteria",
   };
 
-  const getQuery = (categoriaBuscada) => 
+  const getCategoryQuery = (categoriaBuscada) => 
     Object.entries(urls)
-      .filter(([categoria]) => !categoriaBuscada || categoria === categoriaBuscada) // Filtra si hay categoría
-      .map(([categoria, url]) => ({ categoria, url })); // Convierte en array de objetos
+      .filter(([categoria]) => !categoriaBuscada || categoria === categoriaBuscada) 
+      .map(([categoria, url]) => ({ categoria, url })); 
   
 
   const getCategories = Object.keys(urls);
 
-  export { getQuery, getCategories};
+  const getProductQuery = (productoBuscado) => `https://api.mercadolibre.com/items/${productoBuscado}`;
+
+  const getProductDescription = (productoBuscado) => `https://api.mercadolibre.com/items/${productoBuscado}/description`;
+
+  export { getCategoryQuery, getCategories, getProductQuery, getProductDescription};
