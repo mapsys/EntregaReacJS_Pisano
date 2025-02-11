@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <ItemListContainer message={"Proximamente......Encontraras los productos que podremos proveerte"} />
+      <ItemListContainer  />
     </>
   );
 }
