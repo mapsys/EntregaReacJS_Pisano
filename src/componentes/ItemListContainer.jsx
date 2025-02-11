@@ -1,18 +1,17 @@
 import "../estilos/ItemListContainer.css";
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
-import categorias from "../constants/categorias";
-
+import { getQuery } from "../constants/urls";
+import { useParams } from "react-router";
 function ItemListContainer({ message }) {
   const [productos, setProductos] = useState([]);
+  const { id } = useParams();
 
   useEffect(() => {
-    const queries = Object.entries(categorias).map(([categoria, url]) => ({
-      categoria,
-      url,
-    }));
-    
+    const queries = getQuery(id);
+
     console.log(queries);
+
     Promise.all(
       queries.map((query) =>
         fetch(query.url)
@@ -25,13 +24,12 @@ function ItemListContainer({ message }) {
           )
       )
     )
-    .then((resultados) => {
+      .then((resultados) => {
         const allProducts = resultados.flat();
         setProductos(allProducts);
-        console.log(allProducts);
       })
-    .catch((error) => console.error("Error al obtener los productos:", error));
-  }, []);
+      .catch((error) => console.error("Error al obtener los productos:", error));
+  }, [id]);
   return (
     <div>
       <ItemList productos={productos}></ItemList>
