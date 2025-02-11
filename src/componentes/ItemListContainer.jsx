@@ -1,34 +1,36 @@
 import "../estilos/ItemListContainer.css";
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
+import categorias from "../constants/categorias";
+
 function ItemListContainer({ message }) {
   const [productos, setProductos] = useState([]);
 
   useEffect(() => {
-    const queries = {
-      Chocolates: "https://api.mercadolibre.com/sites/MLA/search?q=chocolates%20fenix",
-      Moldes: "https://api.mercadolibre.com/sites/MLA/search?q=moldes%20nordicware",
-      Espátulas: "https://api.mercadolibre.com/sites/MLA/search?q=espatulas%20reposteria",
-    };
-
+    const queries = Object.entries(categorias).map(([categoria, url]) => ({
+      categoria,
+      url,
+    }));
+    
+    console.log(queries);
     Promise.all(
-      Object.entries(queries).map(([categoria, url]) =>
-        fetch(url)
+      queries.map((query) =>
+        fetch(query.url)
           .then((response) => response.json())
           .then((data) =>
             data.results.map((producto) => ({
               ...producto,
-              categoria, // Agrega la categoría correspondiente
+              categoria: query.categoria,
             }))
           )
       )
     )
-      .then((resultados) => {
+    .then((resultados) => {
         const allProducts = resultados.flat();
         setProductos(allProducts);
         console.log(allProducts);
       })
-      .catch((error) => console.error("Error al obtener los productos:", error));
+    .catch((error) => console.error("Error al obtener los productos:", error));
   }, []);
   return (
     <div>
