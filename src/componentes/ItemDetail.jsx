@@ -3,7 +3,6 @@ import "../estilos/ItemDetail.css";
 import ItemCounter from "./ItemCounter";
 
 function ItemDetail({ producto }) {
-  console.log(producto);
   return (
     <div className="itemDetailContainer">
       <h2>{producto.title}</h2>

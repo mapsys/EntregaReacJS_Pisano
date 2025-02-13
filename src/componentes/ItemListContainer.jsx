@@ -28,7 +28,6 @@ function ItemListContainer({ message }) {
       .then((resultados) => {
         const allProducts = resultados.flat();
         setProductos(allProducts);
-        console.log(productos);
       })
       .catch((error) => console.error("Error al obtener los productos:", error))
       .finally(() => setLoading(false));
