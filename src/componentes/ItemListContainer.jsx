@@ -1,18 +1,18 @@
 import "../estilos/ItemListContainer.css";
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
-import categorias from "../constants/categorias";
-
+import { getCategoryQuery } from "../constants/urls";
+import { useParams } from "react-router";
+import Loading from "./Loading";
 function ItemListContainer({ message }) {
   const [productos, setProductos] = useState([]);
-
+  const { id } = useParams();
+  const [loading, setLoading] = useState(false);
+  const loadingText = id? `Cargando ${id}....` : "Cargando productos....."
   useEffect(() => {
-    const queries = Object.entries(categorias).map(([categoria, url]) => ({
-      categoria,
-      url,
-    }));
-    
-    console.log(queries);
+    const queries = getCategoryQuery(id);
+    setLoading(true);
+
     Promise.all(
       queries.map((query) =>
         fetch(query.url)
@@ -25,16 +25,16 @@ function ItemListContainer({ message }) {
           )
       )
     )
-    .then((resultados) => {
+      .then((resultados) => {
         const allProducts = resultados.flat();
         setProductos(allProducts);
-        console.log(allProducts);
       })
-    .catch((error) => console.error("Error al obtener los productos:", error));
-  }, []);
+      .catch((error) => console.error("Error al obtener los productos:", error))
+      .finally(() => setLoading(false));
+  }, [id]);
   return (
     <div>
-      <ItemList productos={productos}></ItemList>
+      {loading? <Loading textoAMostrar={loadingText}></Loading> :<ItemList productos={productos}></ItemList>}
     </div>
   );
 }
