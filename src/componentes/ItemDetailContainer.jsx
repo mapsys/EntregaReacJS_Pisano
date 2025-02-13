@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getProductQuery, getProductDescription } from "../constants/urls";
 import { useParams } from "react-router";
 import ItemDetail from "./ItemDetail";
+import Loading from "./Loading";
 function ItemDetailContainer() {
   const [producto, setProducto] = useState(null);
   const { id } = useParams();
@@ -23,7 +24,7 @@ function ItemDetailContainer() {
 
   return (
     <>
-      {loading? <h1>CARGANDO.....</h1>: <ItemDetail producto = {producto}></ItemDetail>}
+      {loading? <Loading textoAMostrar={"Cargando Detalles"}></Loading>: <ItemDetail producto = {producto}></ItemDetail>}
     </>
   );
 }

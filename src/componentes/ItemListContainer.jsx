@@ -3,11 +3,12 @@ import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import { getCategoryQuery } from "../constants/urls";
 import { useParams } from "react-router";
+import Loading from "./Loading";
 function ItemListContainer({ message }) {
   const [productos, setProductos] = useState([]);
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
-  
+  const loadingText = id? `Cargando ${id}....` : "Cargando productos....."
   useEffect(() => {
     const queries = getCategoryQuery(id);
     setLoading(true);
@@ -34,7 +35,7 @@ function ItemListContainer({ message }) {
   }, [id]);
   return (
     <div>
-      {loading? <h1>CARGANDO......</h1>: <ItemList productos={productos}></ItemList>}
+      {loading? <Loading textoAMostrar={loadingText}></Loading> :<ItemList productos={productos}></ItemList>}
     </div>
   );
 }
