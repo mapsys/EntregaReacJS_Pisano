@@ -1,0 +1,17 @@
+.headerHeader{
+    width: 90%;
+    margin: auto;
+    background-color: #efab77;
+    margin-top: 20px;
+    border-radius: 5px;
+    
+}
+
+.appCentralPage{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5rem;
+}
+.headerHeader.navbar-expand{
+    justify-content: space-between;
+}
