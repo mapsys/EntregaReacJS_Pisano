@@ -1,6 +1,7 @@
 .appContainer{
     display: flex;
     flex-direction: column;
+
 }
 
 .appCentralPage{
@@ -9,5 +10,5 @@
     margin-top: 5rem;
 }
 .categoryBar{
-    width: 10%;
+    width: 15%;
 }

@@ -9,13 +9,16 @@ import { Link } from "react-router";
 function NavBar() {
   const categorias = getCategories;
   return (
-    <Navbar expand="lg" className="bg-body-tertiary navBarHeader">
+    <Navbar expand="lg" className="navBarHeader">
       <div className="navBarContainer">
         <Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav ">
-            <Nav className="me-auto">
-              <div className="menuItems">
+            <Nav className="me-auto menuItems">
+              <div className="navBarTitulo">
+                <h3>Nuestras Categorias</h3>
+                </div>
+                <div className="navBarLinks">
                 <Nav.Link as={Link} to="/">
                   Home
                 </Nav.Link>
@@ -24,7 +27,7 @@ function NavBar() {
                     {categoria}
                   </Nav.Link>
                 ))}
-              </div>
+                </div>
             </Nav>
           </Navbar.Collapse>
         </Container>
