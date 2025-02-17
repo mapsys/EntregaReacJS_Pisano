@@ -1,5 +1,5 @@
 import "../estilos/ItemList.css";
-import Item from "./Item";
+import Item from "./Item/Item";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 function ItemList({ productos }) {
