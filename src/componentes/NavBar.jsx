@@ -9,7 +9,7 @@ import { Link } from "react-router";
 function NavBar() {
   const categorias = getCategories;
   return (
-    <Navbar expand="lg" className="bg-body-tertiary mainHeader">
+    <Navbar expand="lg" className="bg-body-tertiary navBarHeader">
       <div className="navBarContainer">
         <Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

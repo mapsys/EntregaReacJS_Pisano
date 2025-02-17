@@ -1,12 +1,10 @@
-.bi-cart2 {
-    font-size: 1.5rem; 
+.cartWidget.bi-cart2 {
+  font-size: 1.5rem;
 }
-.position-relative {
-    display: inline-block;
-  }
-  
-  
-  .badge {
-    font-size: 0.8rem; 
-    padding: 0.5em 0.6em;
-  }
+.cartWidget.position-relative {
+  display: inline-block;
+}
+.cartWidget.badge {
+  font-size: 0.8rem;
+  padding: 0.5em 0.6em;
+}

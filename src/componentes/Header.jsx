@@ -8,10 +8,9 @@ import { Link } from "react-router";
 import CartWidget from "../componentes/CartWidget";
 function Header() {
   return (
-    // <div className="headerHeader">
     <Navbar className="headerHeader">
       <Container>
-        <Navbar.Brand as={Link} to="/" className="logo">
+        <Navbar.Brand as={Link} to="/" className="logoHeader">
           <img alt="logo" src={logo} className="d-inline-block align-top" />{" "}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -30,9 +29,7 @@ function Header() {
           <CartWidget />
         </Navbar.Collapse>
       </Container>
-
     </Navbar>
-    // </div>
   );
 }
 

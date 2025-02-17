@@ -3,7 +3,11 @@
     flex-direction: column;
 }
 
-
+.appCentralPage{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5rem;
+}
 .categoryBar{
     width: 10%;
 }
