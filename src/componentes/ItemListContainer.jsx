@@ -1,41 +1,51 @@
 import "../estilos/ItemListContainer.css";
 import { useState, useEffect } from "react";
-import ItemList from "./ItemList";
-import { getCategoryQuery } from "../constants/urls";
 import { useParams } from "react-router";
+import ItemList from "./ItemList";
 import Loading from "./Loading";
+import { getCategoryQuery } from "../constants/urls";
+
 function ItemListContainer({ message }) {
   const [productos, setProductos] = useState([]);
-  const { id } = useParams();
   const [loading, setLoading] = useState(false);
-  const loadingText = id? `Cargando ${id}....` : "Cargando productos....."
-  useEffect(() => {
-    const queries = getCategoryQuery(id);
-    setLoading(true);
+  const { id } = useParams();
 
-    Promise.all(
-      queries.map((query) =>
-        fetch(query.url)
-          .then((response) => response.json())
-          .then((data) =>
-            data.results.map((producto) => ({
+  const loadingText = id ? `Cargando ${id}....` : "Cargando productos.....";
+
+  useEffect(() => {
+    const fetchProductos = async () => {
+      setLoading(true);
+      try {
+        const queries = getCategoryQuery(id);
+
+        const resultados = await Promise.all(
+          queries.map(async (query) => {
+            const response = await fetch(query.url);
+            const data = await response.json();
+            return data.results.map((producto) => ({
               ...producto,
               categoria: query.categoria,
-            }))
-          )
-      )
-    )
-      .then((resultados) => {
-        const allProducts = resultados.flat();
-        setProductos(allProducts);
-      })
-      .catch((error) => console.error("Error al obtener los productos:", error))
-      .finally(() => setLoading(false));
+            }));
+          })
+        );
+
+        setProductos(resultados.flat());
+      } catch (error) {
+        console.error("Error al obtener los productos:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProductos();
   }, [id]);
-  return (
-    <div>
-      {loading? <Loading textoAMostrar={loadingText}></Loading> :<ItemList productos={productos}></ItemList>}
-    </div>
-  );
+
+  return( 
+
+    <div>{loading ? <Loading textoAMostrar={loadingText} /> : <ItemList productos={productos} />}</div>
+  
+  ); 
+
 }
+
 export default ItemListContainer;

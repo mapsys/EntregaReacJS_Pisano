@@ -1,6 +1,7 @@
 import "../estilos/CartWidget.css";
 
 function CartWidget() {
+  
   return (
     <div className="cartWidget position-relative ms-3 me-5">
       <i className="cartWidget bi bi-cart2"></i>

@@ -1,11 +1,11 @@
 .container.ItemListContainer{
-    width: 80%;
+    width: 90%;
 }
 
 .itemsCount{
     padding: 20px;
     text-align: center;
     background-color: rgb(190, 223, 212);
-    margin: 10px;
+
     border-radius: 5px;
 }
