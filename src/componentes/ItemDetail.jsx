@@ -8,9 +8,9 @@ function ItemDetail({ producto }) {
       <h2>{producto.title}</h2>
       <div className="detailCarrousel">
         <Carousel interval={null}>
-          {producto.pictures.map((imagen) => (
-            <Carousel.Item key={imagen.id} className="detailCarrouselItem">
-              <img className="" src={imagen.url} alt="First slide" />
+          {producto.pictures.map((imagen, index) => (
+            <Carousel.Item key={index} className="detailCarrouselItem">
+              <img className="" src={imagen} alt="First slide" />
             </Carousel.Item>
           ))}
         </Carousel>

@@ -4,6 +4,8 @@ import { useParams } from "react-router";
 import ItemDetail from "./ItemDetail";
 import Loading from "./Loading";
 import NoEncontrada from "./NoEncontrada";
+import { getProduct } from "../firebase/dbs";
+
 function ItemDetailContainer() {
   const [producto, setProducto] = useState(null);
   const { id } = useParams();
@@ -11,22 +13,14 @@ function ItemDetailContainer() {
   const [noEncontrado, setNoEncontrado] = useState(false);
 
   useEffect(() => {
-    const queryProducto = getProductQuery(id);
-    const queryDescription = getProductDescription(id);
     setLoading(true);
-
-    Promise.all([
-      fetch(queryProducto).then((res) => {
-        if (!res.ok) throw new Error("Producto no encontrado");
-        return res.json();
-      }),
-      fetch(queryDescription).then((res) => {
-        if (!res.ok) throw new Error("Descripción no encontrada");
-        return res.json();
-      }),
-    ])
-      .then(([productData, descriptionData]) => {
-        setProducto({ ...productData, description: descriptionData.plain_text });
+    getProduct(id)
+      .then((res) => {
+        if (res) {
+          setProducto(res);
+        } else {
+          setNoEncontrado(true);
+        }
       })
       .catch((error) => setNoEncontrado(true))
       .finally(() => setLoading(false));

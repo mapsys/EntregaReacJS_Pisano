@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import NoEncontrada from "./componentes/NoEncontrada";
 import Header from "./componentes/Header";
 import { uploadProductsToFirestore } from "./firebase/uploadToFirestore";
-
+import CheckOutForm from "./componentes/CheckOutForm";
 
 
 function App() {
@@ -31,6 +31,7 @@ function App() {
               <Route path="/category/:id" element={<ItemListContainer />} />
               <Route path="/producto/:id" element={<ItemDetailContainer />} />
               <Route path="/cart" element={<CartContainer />} />
+              <Route path="/checkout" element={<CheckOutForm />} />
               <Route path="*" element={<NoEncontrada />} />
             </Routes>
           </div>

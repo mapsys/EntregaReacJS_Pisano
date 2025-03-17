@@ -16,28 +16,28 @@ function CartItem({ producto }) {
   return (
     <div className="carritoProducto">
       <img src={producto.thumbnail} alt={producto.title} />
-      <div class="carrito-producto-titulo">
+      <div className="carrito-producto-titulo">
         <small>Nombre</small>
         <h3>{shortDesc(producto.title)}</h3>
       </div>
-      <div class="carrito-producto-cantidad">
+      <div className="carrito-producto-cantidad">
         <small>Cantidad</small>
         <p>{producto.quantity}</p>
       </div>
-      <div class="carrito-producto-precio">
+      <div className="carrito-producto-precio">
         <small>Precio Unitario</small>
         <p>${producto.price}</p>
       </div>
-      <div class="carrito-producto-subtotal">
+      <div className="carrito-producto-subtotal">
         <small>Subtotal</small>
         <p>{producto.quantity * producto.price}</p>
       </div>
       <button
         onClick={handleDelete}
-        class="carrito-producto-eliminar"
+        className="carrito-producto-eliminar"
         id="${producto.id}"
       >
-        <i class="bi bi-trash-fill"></i>
+        <i className="bi bi-trash-fill"></i>
       </button>
     </div>
   );
