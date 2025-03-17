@@ -17,8 +17,7 @@ function ItemDetail({ producto }) {
       </div>
       <div className="detailDescripcion">{producto.description}</div>
       <div className="addItemToCart">
-
-<ItemCounter></ItemCounter>
+        <ItemCounter producto = {producto}></ItemCounter>
       </div>
     </div>
   );

@@ -1,0 +1,15 @@
+.headerHeader{
+    margin: auto;
+    background-color: #efab77;
+    margin-top: 5px;
+    border-radius: 5px;
+    
+}
+.logoHeader img {
+    height: 70px;
+    margin-right: 15px; 
+}
+
+.headerHeader.navbar-expand{
+    justify-content: space-between;
+}

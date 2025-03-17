@@ -10,7 +10,7 @@ function Item({ producto }) {
         <Card.Img className="ItemListImage" variant="top" src={producto.thumbnail} alt={producto.title} />
         <Card.Body className="d-flex flex-column flex-grow-1">
           <Card.Title className="text-center cardTitle">{producto.title}</Card.Title>
-          <Card.Title className="text-center cardTitle">{producto.id}</Card.Title>
+          <Card.Title className="text-center cardTitle">${producto.price}</Card.Title>
           <Button as ={Link} to={`/producto/${producto.id}`} variant="primary" className="w-100">
             Ver más
           </Button>

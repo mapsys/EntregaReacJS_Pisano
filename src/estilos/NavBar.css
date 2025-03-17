@@ -1,10 +1,18 @@
-.mainHeader{
-    width: 80%;
-    margin: auto;
-    padding: 0 10px 0 10px;
+.navBarHeader.navbar-expand-lg {
+  width: 90%;
+  margin: auto;
+  padding: 0 10px 0 10px;
+  background-color: #efab77;
+  height: 600px;
+  display: flex;
+  align-items: flex-start;
+  border-radius: 5px;
 }
-.logo img {
-    height: 70px;
-    margin-right: 15px; 
+.navBarHeader .navBarContainer .menuItems {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  justify-content: space-between;
+  gap: 50px;
 }
 

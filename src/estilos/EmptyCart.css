@@ -1,0 +1,8 @@
+.emptyCartContainer{
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    margin-top: 100px;
+    padding: 100px 20px;
+    background: radial-gradient(circle, rgba(135, 195, 175, 1) 0%, rgba(135, 195, 175, 0) 100%);
+  }

@@ -1,13 +1,15 @@
-.loadingSpinner{
-    width: 80%;
-    margin: auto;
-    text-align: center;
-    padding-top: 10%;
+.loadingSpinner {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  margin-top: 10rem;
 }
 
-.buttonSpinner{
-    padding: 30px;
+ .buttonSpinner {
+    padding: 2rem;
+    border: none;
+    background: radial-gradient(circle,rgba(239, 171, 119, 1) 0%, rgba(135, 195, 175, 0) 100%);
 }
-.sppiner{
-    margin-right: 20px;
+.sppiner {
+  margin-right: 20px;
 }

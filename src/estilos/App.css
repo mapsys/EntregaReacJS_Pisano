@@ -1,0 +1,17 @@
+.appContainer{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.appCentralPage{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5rem;
+}
+.categoryBar{
+    width: 15%;
+}
+
+.mainContent{
+    width: 85%;}
