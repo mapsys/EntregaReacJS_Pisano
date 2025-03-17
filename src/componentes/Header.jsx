@@ -6,7 +6,9 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../assets/pngegg.png";
 import { Link } from "react-router";
 import CartWidget from "../componentes/CartWidget";
+
 function Header() {
+
   return (
     <Navbar className="headerHeader">
       <Container>

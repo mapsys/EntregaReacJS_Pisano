@@ -5,7 +5,7 @@ import ItemList from "./ItemList";
 import Loading from "./Loading";
 import { getCategoryQuery } from "../constants/urls";
 
-function ItemListContainer({ message }) {
+function ItemListContainer({ }) {
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
