@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { getCategories } from "../constants/urls";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 
 function NavBar() {
   const categorias = getCategories;
@@ -19,11 +19,11 @@ function NavBar() {
                 <h3>Nuestras Categorias</h3>
                 </div>
                 <div className="navBarLinks">
-                <Nav.Link as={Link} to="/">
+                <Nav.Link as={NavLink} to="/">
                   Home
                 </Nav.Link>
                 {categorias.map((categoria, index) => (
-                  <Nav.Link key={index} as={Link} to={`/category/${categoria}`}>
+                  <Nav.Link key={index} as={NavLink} to={`/category/${categoria}`}>
                     {categoria}
                   </Nav.Link>
                 ))}
