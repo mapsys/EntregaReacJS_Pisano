@@ -44,7 +44,7 @@ Se implementan las siguientes funciones para la interacción con Firebase:
 1. Clonar el repositorio:
    ```bash
    git clone https://github.com/mapsys/EntregaReacJS_Pisano.git
-   cd mykitchen-ecommerce
+   cd EntregaReacJS_Pisano
    ```
 2. Instalar las dependencias:
    ```bash
