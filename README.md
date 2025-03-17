@@ -40,6 +40,12 @@ Se implementan las siguientes funciones para la interacción con Firebase:
 - `getProduct`: Obtiene un producto específico.
 - `createOrder`: Crea una orden de compra.
 
+## Importacion de datos a Firestore
+Se creo un script llamado uploadToFirestore.js que se activaba o no cambiando la variable cargaInicial
+a true para realizar la carga inicial de las API's utilizadas a firebase.
+Hoy por hoy no funciona ya que las API's utilizadas ahora requieren autenticacion
+pero se deja a modo de ejemplo de lo que se realizo para cargar la coleccion de productos
+
 ## Instalación y Ejecución
 1. Clonar el repositorio:
    ```bash
