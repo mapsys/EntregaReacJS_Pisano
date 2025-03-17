@@ -67,5 +67,3 @@ pero se deja a modo de ejemplo de lo que se realizo para cargar la coleccion de 
 ---
 
 ¡Gracias por visitar mi proyecto! 🍫🥄
-
-Cambio de nombre
