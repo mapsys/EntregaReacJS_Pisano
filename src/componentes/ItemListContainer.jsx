@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import ItemList from "./ItemList";
 import Loading from "./Loading";
 import { getCategoryQuery } from "../constants/urls";
+import { getProducts } from "../firebase/dbs";
 
 function ItemListContainer({ }) {
   const [productos, setProductos] = useState([]);
